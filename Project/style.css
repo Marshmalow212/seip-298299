@@ -52,3 +52,34 @@ header .navbar .navbar-toggler{
 header .navbar .navbar-toggler .toggler-button{
     color: #f7f7f7 !important;
 }
+
+/*best seller styles*/
+#best-seller .container .best-seller{
+    display: inline-block;
+    border-bottom: 1px solid #4f5050;
+
+}
+#best-seller .container .best-seller-items{
+    height: 15rem;
+}
+
+#best-seller .container .best-seller h2{
+    /*display: inline-block;*/
+    /*border-bottom: 1px solid #4f5050;*/
+}
+#best-seller .container .card {
+    border:0;
+}
+
+#best-seller .container .card .card-body button{
+    border: 1px solid #4f5050;
+}
+#best-seller .container .card .card-body button:hover{
+    border: 1px solid #ef4749;
+    color: #fff;
+    background: #ef4749;
+}
+#best-seller .container .card .card-body a{
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Email Template</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--template body markup-->
+<div id="emailtemplatebody">
+    <!--header markup-->
+    <section id="header" class="text-center pb-4">
+        <h class="display-4 fw-bold">Welcome!</h>
+        <p class="welcometext pt-2 pb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </p>
+        <div class="confirmaccountbutton"><button class="btn">Confirm Account</button></div>
+    </section>
+    <!--middle markup-->
+    <section id="middle">
+        <p class="middletext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
+        <p class="middlelink"><a href="#">See what you can enjoy, let's surf</a></p>
+    </section>
+    <!--footer markup-->
+    <section id="footer">
+        <p class="footertext" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
+        <p>Cheers,<br>The HR Team</p>
+    </section>
+</div>
+
+</body>
+</html>
