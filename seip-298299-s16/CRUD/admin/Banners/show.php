@@ -32,12 +32,12 @@ echo "</pre>";
     <div class="container">
         <div class="row justify-content-center ">
             <div class="col-md-6">
-                <h1 class="text-center mb-4 mt-2">Product Details</h1>
+                <h1 class="text-center mb-4 mt-2">Banner Details</h1>
                 <?php foreach ($result as $key => $value): ?>
                 <?php if(!is_string($key) || $key == 'id')continue; ?>
 
                 <dl class="row">
-                    <dt class="col-sm-4"><?= $key ?></dt>
+                    <dt class="col-sm-4"><?php echo strtoupper($key); ?></dt>
                     <dd class="col-sm-5"><?= $value ?></dd>
                 </dl>
 
