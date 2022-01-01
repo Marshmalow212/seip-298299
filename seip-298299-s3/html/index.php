@@ -113,7 +113,7 @@ if(isset($style)){
     <!-- Stylesheet link with bootstrap -->
 <!--    <link href="style.css" rel="stylesheet">-->
     <!-- script method not needed here -->
-    <!--<script src="../js/bootstrap.js"></script>-->
+    <!--<script oop="../js/bootstrap.js"></script>-->
 </head>
 EMAILTEMPHEADER;
     }
@@ -127,7 +127,7 @@ EMAILTEMPHEADER;
     <!-- Stylesheet link with bootstrap -->
 <!--    <link href="style.css" rel="stylesheet">-->
     <!-- script method not needed here -->
-    <!--<script src="../js/bootstrap.js"></script>-->
+    <!--<script oop="../js/bootstrap.js"></script>-->
     $style
 </head>
 EMAILTEMPHEADER;
@@ -140,7 +140,7 @@ $wrapper_header = <<<WRAPPER_HEADER
         <p class="free-shipping mb-3">FREE SHIPPING + FREE RETURN</p>
         <!--neiman marcus logo -->
         <div class="navbar-brand">
-            <img class="img-fluid" src="../img/logo.svg" alt="logo.svg">
+            <img class="img-fluid" oop="../img/logo.svg" alt="logo.svg">
         </div>
         <div class="discount mt-3">
             <p class="styles">2,000+ STYLES JUST ADDED</p>
@@ -154,7 +154,7 @@ WRAPPER_HEADER;
 $wrapper_section = <<<WRAPPER_SECTION
 <section id="temp-body" class="pb-3">
         <div class="navbar-brand">
-            <img src="../img/logo_2.jpg" alt="logo_2.jpg" class="img-fluid">
+            <img oop="../img/logo_2.jpg" alt="logo_2.jpg" class="img-fluid">
         </div>
         <div>
             <p class="display-4 pb-2 theory">Theory</p>
