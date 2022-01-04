@@ -1,0 +1,319 @@
+@import url(css/bootstrap.css);
+@import url(fontawesome/css/all.css);
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/*.text-info{*/
+    /*color: #0a58ca;*/
+/*}*/
+
+/*font style*/
+body{
+    font-family: 'PT Sans', sans-serif;
+}
+
+/*header styles*/
+
+header .bg-light{
+    background-color: #4a4a4a !important;
+
+}
+header .navbar-light .navbar-nav .nav-link {
+    color: #fff!important;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+header .navbar-light .navbar-nav .nav-item{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/*header .navbar-light .navbar-toggler .navbar-toggler-icon{*/
+    /*background: #F8F8F8!important;*/
+/*}*/
+
+header .navbar-light .navbar-nav .nav-item:hover {
+    background: #F8F8F8!important;
+
+}
+header .navbar-light .navbar-nav .nav-link:hover {
+    color: #6C6C6C!important;
+}
+
+header .navbar-light .navbar-nav .nav-link.active{
+    /*color: #fff;!important;*/
+    color: #bea285!important;
+}
+
+header .navbar .navbar-toggler{
+    background: #6C6C6C!important;
+}
+
+header .navbar .navbar-toggler .toggler-button{
+    color: #f7f7f7 !important;
+}
+
+/*best seller styles*/
+#best-seller{
+    margin-bottom: 20rem;
+}
+
+#best-seller .container .best-seller{
+    display: inline-block;
+    border-bottom: 1px solid #4f5050;
+
+}
+#best-seller .container .best-seller-items{
+    height: 15rem;
+}
+
+#best-seller .container .best-seller h2{
+    /*display: inline-block;*/
+    /*border-bottom: 1px solid #4f5050;*/
+}
+#best-seller .container .card {
+    border:0;
+}
+
+#best-seller .container .card .card-body button{
+    border: 1px solid #4f5050;
+}
+#best-seller .container .card .card-body button:hover{
+    border: 1px solid #ef4749;
+    color: #fff;
+    background: #ef4749;
+}
+#best-seller .container .card .card-body a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/*special product styles*/
+#special-product .container .best-seller{
+    display: inline-block;
+    border-bottom: 1px solid #4f5050;
+
+}
+#special-product .container .best-seller-items{
+    height: 15rem;
+}
+
+#special-product .container .best-seller h2{
+    /*display: inline-block;*/
+    /*border-bottom: 1px solid #4f5050;*/
+}
+#special-product .container .card {
+    border:0;
+}
+
+#special-product .container .card .card-body button{
+    border: 1px solid #4f5050;
+}
+#special-product .container .card .card-body button:hover{
+    border: 1px solid #ef4749;
+    color: #fff;
+    background: #ef4749;
+}
+#special-product .container .card .card-body a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#wrapper .accordion-button{
+    position: relative;
+    display: block;
+    font-size: 0.8rem;
+    align-items: center;
+    padding: 0.5rem;
+}
+#wrapper .accordion-button::after{
+    background-image: none;
+    background-repeat: unset;
+    background-size: 1.25rem;
+}
+#wrapper .accordion-button:not(.collapsed){
+    background-color: #fff;
+    border:none;
+    color:#000;
+}
+
+#wrapper .accordion-item{
+    background-color: #fff;
+    border: none;
+}
+
+#wrapper .accordion-button:focus{
+    border-color: #fff;
+    box-shadow:none;
+}
+
+#wrapper .accordion-button:not(.collapsed) .fa-plus::before{
+    content: "-";
+    right: 0;
+    position: absolute;
+    bottom: -1.2rem;
+    font-size: 2rem;
+}
+
+
+#wrapper .accordion-button i{
+    position: absolute;
+    font-size: 0.7rem;
+    right: 2rem;
+}
+#wrapper .container .row h1{
+    border-bottom: 2px solid #333;
+    font-size: 1rem;
+    line-height: normal;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: #000;
+    padding-bottom: 1rem;
+}
+#wrapper .accordion-body{
+    padding: 0 0 10px 15px ;
+}
+
+#wrapper .accordion-body .nav-link {
+    /*display: block;*/
+    padding: 0.2rem;
+    color: #000;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+.xzoom-gallery {
+    margin-top: 10px
+}
+
+.xzoom {
+    margin-top: 40px
+}
+
+.header-container .header-top .container .nav-link{
+    color: #000;
+}
+
+.header-container .container .nav-link{
+    color: #000;
+}
+/*.header-container .container .navbar-brand img{*/
+    /*margin-top: -2rem;*/
+/*}*/
+
+.header-container .container .nav-item .btn-danger{
+    border-radius:0;
+    width:10rem;
+}
+
+/*countdown timer*/
+
+/* Deals of the day ***************/
+#special-product .timer-grid {
+    overflow: hidden;
+    display: inline-block;
+}
+#special-product .timer-grid .box-time-date {
+    background: #fff;
+    font-size: 10px;
+    color: #999;
+    min-width: 100px;
+    min-height: 100px;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 20px;
+
+    font-weight: normal;
+}
+#special-product .timer-grid .day.box-time-date {
+    background: #000;
+    border-color: #000 !important
+}
+#special-product .timer-grid .day.box-time-date span {
+    color: #fff
+}
+#special-product .timer-grid .day.box-time-date {
+    color: #fff
+}
+#special-product .timer-grid .box-time-date span {
+    display: block;
+    font-size: 24px;
+    color: #000;
+    margin-top: 6px;
+}
+#special-product .box-timer {
+    text-align: center;
+    margin-top: 0;
+    position: relative;
+    left: 0px;
+    top: 0
+}
+#special-product .countbox_2.timer-grid .box-time-date span {
+    display: block;
+    font-size: 20px;
+    color: #f28083;
+    margin-top: 6px;
+}
+
+#special-product .container .row .col-md-6{
+
+}
+
+#special-product .container .row .col-md-6 .countdown{
+    background-image: url("img/deals-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#special-product .container .row .col-md-6 .countdown .box-timer .headingtoppadding{
+    display: block;
+    font-size: 20px;
+    color: #f28083;
+    margin-top: 6px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+
+#special-product .container .row .col-md-6 .countdown .box-timer h3{
+    color: #ef4749;
+    font-size: 40px;
+    margin: 0px auto;
+    font-weight: 400;
+    display: block;
+    padding: 0px;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 0px;
+}
+#special-product .container .row .col-md-6 .countdown .box-timer p{
+    color: #666;
+    font-size: 1rem;
+    text-align: center;
+    padding: 1.5rem 4rem 0;
+}
+
+#special-product .container .row .col-md-6 .countdown .box-timer .starSeparator{
+    display: inline-block;
+    text-align: center;
+    height: 1px;
+    width: 5.5rem;
+    background: #333;
+    margin-top: 1rem;
+}
+
+
+#special-product .container .row .col-md-6 .countdown .container .btn-danger {
+    border-radius:0;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-top: 2.3rem;
+    padding: 0.6rem 1.5rem;
+}
+
+

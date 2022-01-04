@@ -1,0 +1,48 @@
+@import url(css/bootstrap.css);
+
+/*email template body styles*/
+
+#emailtemplatebody{
+    width: 30rem;
+    padding: 1rem;
+    margin: auto;
+    background-color: #ecf0f1;
+}
+
+/*header styles*/
+
+#emailtemplatebody #header .welcometext{
+    line-height: 1.2rem;
+    font-size: 0.8rem;
+}
+
+#emailtemplatebody #header .confirmaccountbutton button{
+    background:#f39c12 ;
+    color: #f0f0f0;
+    font-size: 0.9rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+/*middle part styles*/
+#emailtemplatebody #middle .middletext{
+    line-height: 1.2rem;
+    font-size: 0.8rem;
+}
+#emailtemplatebody #middle .middlelink{
+    color: #f39c12;
+    line-height: 1.2rem;
+    font-size: 0.8rem;
+}
+#emailtemplatebody #middle .middlelink a{
+    color: #f39c12;
+    line-height: 1.2rem;
+    font-size: 0.8rem;
+}
+
+/*footer styles*/
+#emailtemplatebody #footer{
+    line-height: 1.2rem;
+    font-size: 0.8rem;
+}
+

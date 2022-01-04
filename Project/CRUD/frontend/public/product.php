@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>E-Commerce</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+
+<!--markup for header-->
+<header>
+    <div class="container">
+
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!--<a class="navbar-brand" href="#">Navbar</a>-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ecommerceNav" aria-controls="ecommerceNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="toggler-button"><i class="fas fa-bars "></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="ecommerceNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.php">LIVING ROOM</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">DINING & BAR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BEDROOM</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">KITCHEN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">HOME IMPROVEMENT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CUSTOM</a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<!--markup for breadcrumb-->
+<section>
+    <div class="container mt-2">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Product</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+<!--markup for wrapper-->
+<section id="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h1>Categories</h1>
+                <!--markup for accordion-->
+                <div class="accordion accordion-flush " id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                                <span>Living Room</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                <span>Living Room</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                <span>Living Room</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <!--markup for carousel-->
+                <div id="homepageCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/slide-11-1920x600.jpg" class="d-block w-100" alt="slide-11-1920x600.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/slide-22-1920x600.jpg" class="d-block w-100" alt="/slide-22-1920x600.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/slide-33-1920x600.jpg" class="d-block w-100" alt="slide-33-1920x600.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/slide-44-1920x600.jpg" class="d-block w-100" alt="slide-44-1920x600.jpg">
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#homepageCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next z-index-3" type="button" data-bs-target="#homepageCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--scripts for slide interval -->
+    <script>
+        var homepageCarousel = document.querySelector('#homepageCarousel');
+        var carousel = new bootstrap.Carousel(homepageCarousel,{interval:2000,wrap:true});
+    </script>
+
+</section>
+
+</body>
+</html>
