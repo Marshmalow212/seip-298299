@@ -1,5 +1,5 @@
 <?php
-$appRoot = $_SERVER['DOCUMENT_ROOT']."/Project/CRUD";
+$appRoot = $_SERVER['DOCUMENT_ROOT']."/seip-298299/Project/CRUD";
 include_once ($appRoot.'/config.php');
 
 use Crud\BannerController;

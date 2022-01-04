@@ -6,11 +6,11 @@
 //    session_start();
 //}
 
-$webRoot = 'http://localhost:8080/uploads/';
+$webRoot = 'http://localhost:8080/seip-298299/uploads/';
 
-$uploadDirectory = $_SERVER['DOCUMENT_ROOT'].'/uploads/';
+$uploadDirectory = $_SERVER['DOCUMENT_ROOT'].'/seip-298299/uploads/';
 
-$appRoot = $_SERVER['DOCUMENT_ROOT']."/Project/CRUD/";
+$appRoot = $_SERVER['DOCUMENT_ROOT']."/seip-298299/Project/CRUD/";
 
 include_once ($appRoot."vendor/autoload.php");
 
@@ -23,5 +23,5 @@ function databaseConnection(){
 }
 
 function uploadDirectory(){
-    return $_SERVER['DOCUMENT_ROOT'].'/uploads/';
+    return $_SERVER['DOCUMENT_ROOT'].'/seip-298299/uploads/';
 }
