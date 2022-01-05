@@ -1,16 +1,19 @@
 
 
 <?php
-//session_start();
-//if(session_status() == PHP_SESSION_NONE){
-//    session_start();
-//}
+
+
+if(session_status() == PHP_SESSION_NONE){
+    //        session starting
+    session_start();
+}
+
 
 $webRoot = 'http://localhost:8080/seip-298299/uploads/';
 
 
 
-$appRoot = $_SERVER['DOCUMENT_ROOT']."/seip-298299/Project/CRUD/";
+$appRoot = $_SERVER['DOCUMENT_ROOT']."/seip-298299/seip-298299-s32/CRUD/";
 
 include_once ($appRoot."vendor/autoload.php");
 

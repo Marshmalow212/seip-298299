@@ -1,4 +1,12 @@
+<?php
+use Crud\ProductController;
 
+$Product = new ProductController();
+
+
+$resultSet = $Product->activeProducts();
+//var_dump($resultSet);
+?>
 <!--Best seller markup-->
 <section id="best-seller" class="mt-2">
     <div class="container">
@@ -10,11 +18,15 @@
             </div>
         </div>
         <div class="row row-cols-1 row-cols-md-4 g-4 text-center best-seller-items">
+            <?php
+            foreach ($resultSet as $result):
+            ?>
             <div class="col">
                 <div class="card">
-                    <a title="Grandpa Rocking Chair" href="product-detail.php"><img src="img/product12-700x850.jpg" class="card-img-top" alt="Best Sellers"></a>
+                    <a title="<?=$result['title']?>" href="product-detail.php?page=<?=$result['title']?>&id=<?=$result['id']?>">
+                        <img src="<?=$webRoot.$result['picture']?>" class="card-img-top" alt="<?=$result['picture']?>"></a>
                     <div class="card-body">
-                        <h5 class="card-title"><a href="#">Grandpa Rocking Chair</a></h5>
+                        <h5 class="card-title"><a href="#"><?=$result['title']?></a></h5>
                         <p class="card-text">
                             <i class="fas fa-star fa-xs"></i>
                             <i class="fas fa-star fa-xs"></i>
@@ -23,74 +35,16 @@
                             <i class="fas fa-star fa-xs"></i>
                             <i class="fas fa-star fa-xs"></i>
                         </p>
-                        <p class="dollar">&dollar;100</p>
+                        <p class="dollar">&dollar;<?=$result['mrp']?></p>
                         <div><button type="button" class="btn btn-light add-to-cart">ADD TO CART</button></div>
                     </div>
 
                 </div>
 
             </div>
-            <div class="col">
-                <div class="card">
-                    <a title="Nitraa Lydon Dining Table" href="#"><img src="img/product16-700x850.jpg" class="card-img-top" alt="Best Sellers"></a>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="#">Nitraa Lydon Dining Table</a></h5>
-                        <p class="card-text">
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                        </p>
-                        <p class="dollar">&dollar;100</p>
-                        <div><button type="button" class="btn btn-light add-to-cart">ADD TO CART</button></div>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="col">
-                <div class="card">
-                    <a title="Table Lamp in Steam Wood" href="#"><img src="img/product14-700x850.jpg" class="card-img-top" alt="Best Sellers"></a>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="#">Table Lamp in Steam Wood</a>
-                        </h5>
-                        <p class="card-text">
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                        </p>
-                        <p class="dollar">&dollar;100</p>
-                        <div><button type="button" class="btn btn-light add-to-cart">ADD TO CART</button></div>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="col">
-                <div class="card">
-                    <a title="Table Lamp" href="#"><img src="img/product16-700x850.jpg" class="card-img-top" alt="Best Sellers"></a>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="#">Table Lamp</a></h5>
-                        <p class="card-text">
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                            <i class="fas fa-star fa-xs"></i>
-                        </p>
-                        <p class="dollar">&dollar;100</p>
-                        <div><button type="button" class="btn btn-light add-to-cart">ADD TO CART</button></div>
-                    </div>
-
-                </div>
-
-            </div>
+            <?php
+            endforeach;
+            ?>
 
         </div>
 
