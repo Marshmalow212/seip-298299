@@ -1,13 +1,16 @@
 <?php
 
+$appRoot = $_SERVER['DOCUMENT_ROOT']."/seip-298299-s27/CRUD/vendor/";
 
-include_once ("../../config.php");
+include_once ($appRoot."/autoload.php");
 
 use Crud\CartController;
 
 $_carts = new CartController();
 
-$resultSet = $_carts->index();
+//$_banner->index();
+$tableName = "banners";
+$resultSet = $_carts->index($tableName);
 
 
 ?>
@@ -26,9 +29,12 @@ $resultSet = $_carts->index();
     <div class="container">
         <div class="row justify-content-center ">
             <div class="col-md-6">
-                <?php
-                include_once ('../session_message.php');
-                ?>
+                <div>
+                    <?php
+                    echo $_SESSION['message'];
+                    $_SESSION['message']="";
+                    ?>
+                </div>
                 <h1 class="text-center mb-4 mt-2">Cart List</h1>
                 <ul>
                     <li class="inline-list-item nav-link">        <a href="create.php" class="btn btn-outline-dark">Create Cart</a></li>

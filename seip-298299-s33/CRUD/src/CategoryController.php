@@ -4,14 +4,16 @@
 
 
 namespace Crud;
-include_once ("../../config.php");
+include_once ($_SERVER['DOCUMENT_ROOT'].'/DatabaseConnection.php');
 
 use PDO;
 
-class CartController
+class CategoryController
 {
     public function index(){
 
+
+        session_start();
         echo "<pre>";
 
 //database connection to ecommerce
@@ -20,7 +22,7 @@ class CartController
 //PDO error exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $selectQuery = "select * from carts";
+        $selectQuery = "select * from categories";
 
         $queryStatement = $conn->prepare($selectQuery);
 
@@ -31,7 +33,6 @@ class CartController
 //print_r($resultSet);
 
         echo "</pre>";
-
         return $resultSet;
     }
 

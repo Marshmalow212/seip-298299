@@ -4,7 +4,7 @@
 
 
 namespace Crud;
-include_once ("../../config.php");
+include_once ($_SERVER['DOCUMENT_ROOT'].'/DatabaseConnection.php');
 
 use PDO;
 
@@ -12,6 +12,7 @@ class CartController
 {
     public function index(){
 
+        session_start();
         echo "<pre>";
 
 //database connection to ecommerce

@@ -1,12 +1,17 @@
 <?php
-include_once ('../../config.php');
+//echo"<pre>";
+//print_r($_SERVER);
+//echo"</pre>";
+//die();
+$appRoot = $_SERVER['DOCUMENT_ROOT']."/seip-298299-s28/CRUD";
+include_once ($appRoot.'/config.php');
 
-use Crud\ProductController;
+use Crud\BannerController;
 
-$Product = new ProductController();
+$_banner = new BannerController();
 
 
-$resultSet = $Product->index();
+$resultSet = $_banner->index();
 ?>
 
 <!DOCTYPE html>
@@ -23,12 +28,15 @@ $resultSet = $Product->index();
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <?php
-                include_once ('../session_message.php');
-                ?>
-                <h1 class="text-center mb-4 mt-2">Product List </h1>
+                <div>
+                    <?php
+                    echo $_SESSION['message'];
+                    $_SESSION['message']="";
+                    ?>
+                </div>
+                <h1 class="text-center mb-4 mt-2">Banner List </h1>
                 <div class="inline-list">
-                    <p class="inline-list-item nav-link">        <a href="create.php" class="btn btn-outline-dark">Create Product</a>  <a href="draftlist.php" class="btn btn-outline-dark">Draft</a></p>
+                    <p class="inline-list-item nav-link">        <a href="create.php" class="btn btn-outline-dark">Create Banner</a>  <a href="trashlist.php" class="btn btn-outline-dark">Trash</a></p>
                 </div>
 
                 <table class="table">
@@ -36,8 +44,8 @@ $resultSet = $Product->index();
                     <tr>
                         <th scope="col">Title</th>
                         <th scope="col">Picture</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">MRP</th>
+<!--                        <th scope="col">Link</th>-->
+                        <th scope="col">Promotional Message</th>
                         <th scope="col">Created At</th>
                         <th scope="col">Modified At</th>
                         <th scope="col">Action</th>
@@ -50,15 +58,15 @@ $resultSet = $Product->index();
                     <tr>
                         <td scope="row" ><?= $result['title'] ?></td>
                         <td ><?= $result['picture'] ?></td>
-                        <td ><?= $result['is_active']?"Active":"Deactivate" ?></td>
-                        <td ><?= $result['mrp'] ?>&dollar;</td>
+<!--                        <td >--><?//= $result['link'] ?><!--</td>-->
+                        <td ><?= $result['promotional_message'] ?></td>
                         <td ><?= $result['created_at'] ?></td>
                         <td ><?= $result['modified_at'] ?></td>
                         <td> <div class="btn-group">
                                 <a href="show.php?id=<?php echo $result['id']?>" class="btn btn-primary">Show</a>
                                 <a href="edit.php?id=<?php echo $result['id']?>" class="btn btn-success">Edit</a>
 <!--                                <a href="delete.php?id=--><?php //echo $result['id']?><!--" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>-->
-                                <a href="draft.php?id=<?php echo $result['id']?>" class="btn btn-secondary" onclick="return confirm('Are you sure?')">Delete</a>
+                                <a href="trash.php?id=<?php echo $result['id']?>" class="btn btn-secondary" onclick="return confirm('Are you sure?')">Delete</a>
 
                             </div>
                         </td>

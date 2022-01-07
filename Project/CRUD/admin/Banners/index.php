@@ -3,8 +3,8 @@
 //print_r($_SERVER);
 //echo"</pre>";
 //die();
-$appRoot = $_SERVER['DOCUMENT_ROOT']."/seip-298299-s28/CRUD";
-include_once ($appRoot.'/config.php');
+
+include_once ('../../config.php');
 
 use Crud\BannerController;
 
@@ -28,12 +28,9 @@ $resultSet = $_banner->index();
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div>
-                    <?php
-                    echo $_SESSION['message'];
-                    $_SESSION['message']="";
-                    ?>
-                </div>
+                <?php
+                include_once ('../session_message.php');
+                ?>
                 <h1 class="text-center mb-4 mt-2">Banner List </h1>
                 <div class="inline-list">
                     <p class="inline-list-item nav-link">        <a href="create.php" class="btn btn-outline-dark">Create Banner</a>  <a href="trashlist.php" class="btn btn-outline-dark">Trash</a></p>

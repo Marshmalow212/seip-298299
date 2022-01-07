@@ -1,12 +1,32 @@
 <?php
-include_once ('../../config.php');
+session_start();
+include $_SERVER['DOCUMENT_ROOT'].'/DatabaseConnection.php';
+echo "<pre>";
 
-use Crud\ProductController;
+//database connection to ecommerce
 
-$Product = new ProductController();
+$conn = databaseConnection();
+//PDO error exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+if(!empty($_GET['id'])){
+    $trashId = $_GET['id'];
+    $queryResult = ($conn->prepare("Update banners set soft_delete=0 where id=?"))->execute([$trashId]);
+}
 
 
-$resultSet = $Product->index();
+$selectQuery = "select * from banners where soft_delete=1";
+
+$queryStatement = $conn->prepare($selectQuery);
+
+$queryResult = $queryStatement->execute();
+
+$resultSet = $queryStatement->fetchAll();
+
+//print_r($resultSet);
+
+echo "</pre>";
+
 ?>
 
 <!DOCTYPE html>
@@ -19,16 +39,19 @@ $resultSet = $Product->index();
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<section>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <?php
-                include_once ('../session_message.php');
-                ?>
-                <h1 class="text-center mb-4 mt-2">Product List </h1>
-                <div class="inline-list">
-                    <p class="inline-list-item nav-link">        <a href="create.php" class="btn btn-outline-dark">Create Product</a>  <a href="draftlist.php" class="btn btn-outline-dark">Draft</a></p>
+                <div>
+                    <?php
+                    echo $_SESSION['message'];
+                    $_SESSION['message']="";
+                    ?>
+                </div>
+                <h1 class="text-center mb-4 mt-2">Trash</h1>
+                <div class="list-inline">
+                    <li class="inline-list-item nav-link"><a href="index.php" class="btn btn-outline-dark">Banner Index</a></li>
                 </div>
 
                 <table class="table">
@@ -36,8 +59,8 @@ $resultSet = $Product->index();
                     <tr>
                         <th scope="col">Title</th>
                         <th scope="col">Picture</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">MRP</th>
+<!--                        <th scope="col">Link</th>-->
+                        <th scope="col">Promotional Message</th>
                         <th scope="col">Created At</th>
                         <th scope="col">Modified At</th>
                         <th scope="col">Action</th>
@@ -48,17 +71,15 @@ $resultSet = $Product->index();
                     if(count($resultSet)>0):
                     foreach ($resultSet as $result): ?>
                     <tr>
-                        <td scope="row" ><?= $result['title'] ?></td>
+                        <td ><?= $result['title'] ?></td>
                         <td ><?= $result['picture'] ?></td>
-                        <td ><?= $result['is_active']?"Active":"Deactivate" ?></td>
-                        <td ><?= $result['mrp'] ?>&dollar;</td>
+<!--                        <td >--><?//= $result['link'] ?><!--</td>-->
+                        <td ><?= $result['promotional_message'] ?></td>
                         <td ><?= $result['created_at'] ?></td>
                         <td ><?= $result['modified_at'] ?></td>
                         <td> <div class="btn-group">
-                                <a href="show.php?id=<?php echo $result['id']?>" class="btn btn-primary">Show</a>
-                                <a href="edit.php?id=<?php echo $result['id']?>" class="btn btn-success">Edit</a>
-<!--                                <a href="delete.php?id=--><?php //echo $result['id']?><!--" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>-->
-                                <a href="draft.php?id=<?php echo $result['id']?>" class="btn btn-secondary" onclick="return confirm('Are you sure?')">Delete</a>
+                                <a href="delete.php?id=<?php echo $result['id']?>" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                <a href="trashlist.php?id=<?php echo $result['id']?>" class="btn btn-secondary" onclick="return confirm('Are you sure?')">Restore</a>
 
                             </div>
                         </td>
@@ -68,7 +89,7 @@ $resultSet = $Product->index();
                     else:
                     ?>
                     <tr>
-                        <td class="text-center" colspan="5">No Banners in the inventory<br><a class="nav-link" href="create.php"> Click Here to Add</a></td>
+                        <td class="text-center" colspan="6">Trash is Empty</td>
                     </tr>
                     <?php
                     endif;
@@ -83,6 +104,7 @@ $resultSet = $Product->index();
 
     </div>
 
+</section>
 
 </body>
 </html>
