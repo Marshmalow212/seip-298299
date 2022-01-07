@@ -22,6 +22,9 @@ include_once ("../views/elements/head.php");
         else if($pageReq == 'register'){
         include_once ("../views/elements/signup.php");
         }
+        else if($pageReq == 'dashboard'){
+            include_once("../views/elements/dashboard.php");
+        }
 
         ?>
 

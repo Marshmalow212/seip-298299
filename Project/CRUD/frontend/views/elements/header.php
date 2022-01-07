@@ -40,7 +40,7 @@
                         <div class="col-md-6 offset-2">
                             <ul class="nav">
                                 <li class="nav-item">
-                                    <a class="nav-link " href="#"><i class="far fa-user"></i> My Account</a>
+                                    <a class="nav-link " href="authenticator.php"><i class="far fa-user"></i> My Account</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#"><i class="far fa-heart"></i> My Wishlist</a>
@@ -55,7 +55,7 @@
                                     <?php
                                     if(is_array($_SESSION) && array_key_exists('user_id',$_SESSION) && !empty($_SESSION['user_id'])):
                                     ?>
-                                    <a class="nav-link" href="index.php" onclick="<?php $_SESSION['user_id']=''?>"><i class="fas fa-lock"></i> Logout</a>
+                                    <a class="nav-link" href="authenticator.php?logout"><i class="fas fa-lock"></i> Logout</a>
                                     <?php
 
                                     else:
