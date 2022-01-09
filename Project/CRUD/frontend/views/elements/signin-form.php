@@ -2,7 +2,8 @@
 
 ?>
 
-<form class="col-md-6 mt-2" method="post" action="authenticator.php" >
+
+<form class="col-md-6 mt-2" method="post" action="<?=$projectRoot;?>CRUD/admin/Users/login.php" >
     <input type="hidden" name="id" value="">
     <div class="col-md-6">
         <label  class="form-label">Username</label>
@@ -17,7 +18,7 @@
         <button type="submit" class="btn btn-dark" >Sign In</button>
     </div>
     <div class="col-12 mt-2">
-        <p>Not Registered? <a class="nav-link" href="authenticator.php?page=register">Sign up</a></p>
+        <p>Not Registered? <a class="nav-link" href="signup.php">Sign up</a></p>
     </div>
 
 </form>

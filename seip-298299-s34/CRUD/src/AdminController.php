@@ -4,15 +4,17 @@
 
 
 namespace Crud;
-include_once ("../../config.php");
+include_once ("./../../config.php");
 
 use PDO;
 
-class UserController
+class AdminController
 {
     public $conn = null;
     public function __construct()
     {
+//        session starting
+        session_start();
         //database connection to ecommerce
 
         $this->conn = databaseConnection();
@@ -21,12 +23,12 @@ class UserController
 
     }
 //index function
-    public function index(){
+    public function index($tableName){
 
         echo "<pre>";
 
 
-        $selectQuery = "select * from users;";
+        $selectQuery = "select * from admins;";
 
 
         $queryStatement = $this->conn->prepare($selectQuery);
@@ -52,8 +54,7 @@ class UserController
         if(array_key_exists('is_draft',$postData))$isDraft = 1;
 
 
-        $normalPass = $postData['password'];
-        $hashedPass = md5($normalPass);
+
 
 
         if($this->conn){
@@ -61,23 +62,23 @@ class UserController
         }
         else echo 'Please Connect database first!<br>';
 
-        $insertQuery = "INSERT INTO users (username,fullname,email,password,phone) VALUES (?,?,?,?,?);";
+        $insertQuery = "INSERT INTO admins (name,email,password,is_active,is_draft,created_at) VALUES (?,?,?,?,?,?);";
 
         $queryStatement = $this->conn->prepare($insertQuery);
 
 //$queryStatement->bindParam(':title',$postData['title']);
 
-        $queryData = [$postData['username'],$postData['fullname'],$postData['email'],$hashedPass,$postData['phone']];
+        $queryData = [$postData['name'],$postData['email'],$postData['password'],$isActive,$isDraft,$postData['created_at']];
 
 //print_r($queryData);
 
         $queryResult = $queryStatement->execute($queryData);
 
         if($queryResult){
-            $_SESSION['message'] = "User Created!";
+            $_SESSION['message'] = "Admin Created!";
         }
         else{
-            $_SESSION['message'] = "User declined!";
+            $_SESSION['message'] = "Admin declined!";
         }
 
 
@@ -90,7 +91,7 @@ class UserController
 
 
 
-        $showQuery = "select * from users where id = ?";
+        $showQuery = "select * from admins where id = ?";
 
         $queryStatement = $this->conn->prepare($showQuery);
 
@@ -108,13 +109,12 @@ class UserController
     public function update($postData,$id){
         $isActive = $isDraft = 0;
 //$modifiedAt = empty($postData['modified_at'])?null:$postData['modified_at'];
-
+    
         if(array_key_exists('is_active',$postData))$isActive = 1;
         if(array_key_exists('is_draft',$postData))$isDraft = 1;
 
 
-        $normalPass = $postData['password'];
-        $hashedPass = md5($normalPass);
+
 
 
         if($this->conn){
@@ -122,23 +122,23 @@ class UserController
         }
         else echo 'Please Connect database first!<br>';
 
-        $insertQuery = "UPDATE users set username=?,fullname=?,email=?,password=?,phone=? where id=?;";
+        $insertQuery = "UPDATE admins set name=?,email=?,password=?,is_active=?,is_draft=?,modified_at=? where id=?;";
 
         $queryStatement = $this->conn->prepare($insertQuery);
 
 //$queryStatement->bindParam(':title',$postData['title']);
 
-        $queryData = [$postData['username'],$postData['fullname'],$postData['email'],$hashedPass,$postData['phone'],$id];
+        $queryData = [$postData['name'],$postData['email'],$postData['password'],$isActive,$isDraft,$postData['modified_at'],$id];
 
 //print_r($queryData);
 
         $queryResult = $queryStatement->execute($queryData);
 
         if($queryResult){
-            $_SESSION['message'] = "User Created!";
+            $_SESSION['message'] = "Admin Created!";
         }
         else{
-            $_SESSION['message'] = "User declined!";
+            $_SESSION['message'] = "Admin declined!";
         }
 
 
@@ -155,7 +155,7 @@ class UserController
 
 
 
-        $showQuery = "select * from users where id = ?";
+        $showQuery = "select * from admins where id = ?";
 
         $queryStatement = $this->conn->prepare($showQuery);
 
@@ -177,7 +177,7 @@ class UserController
 
 
 
-        $deleteQuery = "delete from users where id = ?";
+        $deleteQuery = "delete from admins where id = ?";
 
         $queryStatement = $this->conn->prepare($deleteQuery);
 
@@ -188,26 +188,12 @@ class UserController
         echo "</pre>";
 
         if(($resultSet)){
-            $_SESSION['message'] = "User Deleted!";
+            $_SESSION['message'] = "Admin Deleted!";
         }
         else{
-            $_SESSION['message'] = "User not Deleted!";
+            $_SESSION['message'] = "Admin not Deleted!";
         }
-
-    }
-
-    public function authenticate(){
-        $username = $_POST['username'];
-        $password = md5($_POST['password']);
-
-        $checkQuery = "select * from users where username like ? AND password like ?";
-        $prepQuery = $this->conn->prepare($checkQuery);
-        $prepQuery->execute([$username,$password]);
-        $result = $prepQuery->fetch();
-
-        return $result;
 
     }
 
 }
-

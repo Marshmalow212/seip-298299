@@ -1,6 +1,23 @@
 <?php
 ?>
 
+<?php
+if(array_key_exists('message',$_SESSION) && $_SESSION['message']!=''):
+    ?>
+    <div class="alert alert-success">
+
+        <div>
+            <?php
+            echo $_SESSION['message'];
+            $_SESSION['message']="";
+            ?>
+        </div>
+    </div>
+<?php
+endif;
+?>
+
+
 <!--markup for header-->
 <header>
     <div class="header-container">
@@ -40,7 +57,7 @@
                         <div class="col-md-6 offset-2">
                             <ul class="nav">
                                 <li class="nav-item">
-                                    <a class="nav-link " href="authenticator.php"><i class="far fa-user"></i> My Account</a>
+                                    <a class="nav-link " href="dashboard.php"><i class="far fa-user"></i> My Account</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#"><i class="far fa-heart"></i> My Wishlist</a>
@@ -49,18 +66,18 @@
                                     <a class="nav-link" href="#"><i class="far fa-check-circle"></i> Checkout</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="far fa-comments"></i> Blog</a>
+                                    <a class="nav-link" href="signup.php"><i class="far fa-comments"></i> Sign up</a>
                                 </li>
                                 <li class="nav-item">
                                     <?php
                                     if(is_array($_SESSION) && array_key_exists('user_id',$_SESSION) && !empty($_SESSION['user_id'])):
                                     ?>
-                                    <a class="nav-link" href="authenticator.php?logout"><i class="fas fa-lock"></i> Logout</a>
+                                    <a class="nav-link" href="logout.php"><i class="fas fa-lock"></i> Logout</a>
                                     <?php
 
                                     else:
                                     ?>
-                                    <a class="nav-link" href="user.php?page=login" ><i class="fas fa-lock"></i> Login</a>
+                                    <a class="nav-link" href="login.php" ><i class="fas fa-lock"></i> Login</a>
                                     <?php
                                     endif;
                                     ?>

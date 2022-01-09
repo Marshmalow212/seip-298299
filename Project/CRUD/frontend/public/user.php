@@ -16,14 +16,14 @@ include_once ("../views/elements/head.php");
     <div class="row justify-content-center">
         <?php
         if($pageReq == 'login'){
-        include_once ("../views/elements/signin.php");
+        include_once("../views/elements/signin-form.php");
 
         }
         else if($pageReq == 'register'){
-        include_once ("../views/elements/signup.php");
+        include_once("../views/elements/signup-form.php");
         }
         else if($pageReq == 'dashboard'){
-            include_once("../views/elements/dashboard.php");
+            include_once("../views/elements/dashboard-title.php");
         }
 
         ?>

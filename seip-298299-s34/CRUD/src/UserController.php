@@ -4,7 +4,7 @@
 
 
 namespace Crud;
-include_once ("../../config.php");
+include_once ("./../../config.php");
 
 use PDO;
 
@@ -193,19 +193,6 @@ class UserController
         else{
             $_SESSION['message'] = "User not Deleted!";
         }
-
-    }
-
-    public function authenticate(){
-        $username = $_POST['username'];
-        $password = md5($_POST['password']);
-
-        $checkQuery = "select * from users where username like ? AND password like ?";
-        $prepQuery = $this->conn->prepare($checkQuery);
-        $prepQuery->execute([$username,$password]);
-        $result = $prepQuery->fetch();
-
-        return $result;
 
     }
 
