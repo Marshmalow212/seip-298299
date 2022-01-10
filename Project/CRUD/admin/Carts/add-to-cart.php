@@ -5,6 +5,6 @@ use Crud\CartController;
 
 $_carts = new CartController();
 
-$resultSet = $_carts->store();
+$_carts->addToCart();
 
-header("Location: ./index.php");
+header('location:'.$projectRoot.'CRUD/frontend/public/cart.php');
