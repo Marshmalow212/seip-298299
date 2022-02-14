@@ -8,7 +8,7 @@ if(session_status() == PHP_SESSION_NONE){
 }
 
 $webRoot = 'http://localhost:8080/seip-298299/uploads/';
-$projectRoot = 'http://localhost:8080/seip-298299/';
+$projectRoot = 'http://localhost:8080/seip-298299/Project/';
 
 $appRoot = $_SERVER['DOCUMENT_ROOT']."/seip-298299/Project/CRUD/";
 

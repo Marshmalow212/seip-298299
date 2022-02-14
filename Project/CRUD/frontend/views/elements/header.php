@@ -1,5 +1,32 @@
 <?php
+
+use Crud\CartController;
+$cart_items = 0;
+$uid = $_SESSION['user_id']??null;
+$carts = new CartController();
+$cart_res =count( $carts->showMyCart($uid))??0;
+//echo $cart_res;   
+$cart_total_amount = $carts->myTotalAmount($uid)??0;
+$cart_total_amount = number_format((float)$cart_total_amount,2,'.','');
+//echo $cart_total_amount;
 ?>
+
+<?php
+if(array_key_exists('message',$_SESSION) && $_SESSION['message']!=''):
+    ?>
+    <div class="alert alert-success">
+
+        <div>
+            <?php
+            echo $_SESSION['message'];
+            $_SESSION['message']="";
+            ?>
+        </div>
+    </div>
+<?php
+endif;
+?>
+
 
 <!--markup for header-->
 <header>
@@ -9,6 +36,7 @@
                 <div class="d-none d-sm-block">
                     <div class="row">
                         <div class="col-md-4">
+<!--                            --><?//=$_SESSION['user_id'];?>
                             <div class="row">
                                 <div class="col">
                                     <div class="country">
@@ -40,7 +68,7 @@
                         <div class="col-md-6 offset-2">
                             <ul class="nav">
                                 <li class="nav-item">
-                                    <a class="nav-link " href="authenticator.php"><i class="far fa-user"></i> My Account</a>
+                                    <a class="nav-link " href="dashboard.php"><i class="far fa-user"></i> My Account</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#"><i class="far fa-heart"></i> My Wishlist</a>
@@ -49,18 +77,18 @@
                                     <a class="nav-link" href="#"><i class="far fa-check-circle"></i> Checkout</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="far fa-comments"></i> Blog</a>
+                                    <a class="nav-link" href="signup.php"><i class="far fa-comments"></i> Sign up</a>
                                 </li>
                                 <li class="nav-item">
                                     <?php
                                     if(is_array($_SESSION) && array_key_exists('user_id',$_SESSION) && !empty($_SESSION['user_id'])):
                                     ?>
-                                    <a class="nav-link" href="authenticator.php?logout"><i class="fas fa-lock"></i> Logout</a>
+                                    <a class="nav-link" href="logout.php"><i class="fas fa-lock"></i> Logout</a>
                                     <?php
 
                                     else:
                                     ?>
-                                    <a class="nav-link" href="user.php?page=login" ><i class="fas fa-lock"></i> Login</a>
+                                    <a class="nav-link" href="login.php" ><i class="fas fa-lock"></i> Login</a>
                                     <?php
                                     endif;
                                     ?>
@@ -157,11 +185,11 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn btn-danger text-light" href="#">
+                                <a class="nav-link btn btn-danger text-light" href="cart.php">
                                     <span><i class="fas fa-shopping-cart"></i></span>
-                                    <span class="cart-count">0</span>
+                                    <span class="cart-count"><?=$cart_res?></span>
                                     Cart /
-                                    <span class="cart-amount">&dollar;0.00</span></a>
+                                    <span class="cart-amount">&dollar;<?=$cart_total_amount?></span></a>
                             </li>
 
 

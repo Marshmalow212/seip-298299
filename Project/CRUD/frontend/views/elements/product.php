@@ -29,6 +29,59 @@ $result = $Product->show($show_id);
                 </div>
             </div>
             <div class="col-md-8">
+                <div class="container">
+                    <h2 class="h1 mt-2 mb-2"><?=$result['title'];?></h2>
+                    <div class="row border-bottom">
+                        <div class="col-md-3">
+                            <p class="card-text">
+
+                                <i class="fas fa-star fa-xs"></i>
+                                <i class="fas fa-star fa-xs"></i>
+                                <i class="fas fa-star fa-xs"></i>
+                                <i class="fas fa-star fa-xs"></i>
+                                <i class="fas fa-star fa-xs"></i>
+                                <i class="fas fa-star fa-xs"></i>
+
+                            </p>
+                        </div>
+                        <div class="col-md-2"><p>5 reviews</p></div>
+                        <div class="col-md-2"><p>write review</p></div>
+                    </div>
+                    <div class="row mt-3 mb-4 border-bottom">
+                        <p class="h4">&dollar;<?=$result['mrp']?></p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <form class="form" method="post" action="<?=$projectRoot;?>CRUD/admin/Carts/add-to-cart.php">
+                                <div class="row">
+                                    <div class="col-md-2 mr-2">
+                                        <label for="">Qty
+                                        </label>
+                                    </div>
+                                    <div class="col-md">
+
+                                        <input class="form-control" type="number" name="qty" value="1">
+                                    </div>
+                                </div>
+
+                                    <div class="col-md mt-2">
+                                        <button type="submit" class="btn btn-danger add-to-cart">ADD TO CART</button></div>
+                                </div>
+                        <input type="hidden" name="product_title" value="<?=$result['title']?>">
+                        <input type="hidden" name="product_id" value="<?=$result['id']?>">
+                        <input type="hidden" name="unit_price" value="<?=$result['mrp']?>">
+                        <input type="hidden" name="picture" value="<?=$result['picture']?>">
+
+                            </form>
+                        <p>
+                        <div>
+                        </div>
+                        </p>
+                    </div>
+
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
